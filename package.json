@@ -4,9 +4,14 @@
   "description": "2 aula de ppi",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "build": "echo 'Build completo!'"
   },
   "repository": {
     "type": "git",
