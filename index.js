@@ -9,6 +9,141 @@ const jogos = [];
 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send(`
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RPG Nerd - Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+                font-family: 'Courier New', Courier, monospace;
+                min-height: 100vh;
+            }
+
+            .card {
+                background-color: #1E1E2F;
+                border: 1px solid #9D4EDD;
+                max-width: 800px;
+                width: 90%;
+                margin: 30px auto;
+            }
+
+            .bg-nerd {
+                background-color: #9D4EDD !important;
+                color: white;
+            }
+
+            .btn-nerd {
+                background-color: #9D4EDD;
+                border-color: #9D4EDD;
+                color: white;
+                box-shadow: 0 0 10px #9D4EDD;
+                margin: 10px;
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+
+            .btn-nerd:hover {
+                background-color: #7A2CC8;
+                border-color: #7A2CC8;
+            }
+            
+            .nav-nerd {
+                background-color: #1E1E2F;
+                padding: 10px 15px;
+                border-bottom: 2px solid #9D4EDD;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                margin-bottom: 25px;
+            }
+            
+            .nav-nerd .nav-link {
+                color: #e0e0e0;
+                font-weight: bold;
+                padding: 10px 20px;
+                margin: 0 5px;
+                border-radius: 5px;
+                transition: all 0.3s;
+            }
+            
+            .nav-nerd .nav-link:hover,
+            .nav-nerd .nav-link.active {
+                background-color: #9D4EDD;
+                color: white;
+            }
+            
+            .welcome-icon {
+                font-size: 5rem;
+                color: #9D4EDD;
+                margin-bottom: 20px;
+                text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+            }
+            
+            .card-title {
+                color: #9D4EDD;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
+
+            .content-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: calc(100vh - 80px);
+            }
+        </style>
+    </head>
+    <body>
+       
+        <nav class="nav-nerd">
+            <div class="container">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/cadastro">
+                            <i class="bi bi-plus-circle-fill me-2"></i>Cadastrar Jogo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listadejogos">
+                            <i class="bi bi-list-ul me-2"></i>Lista de Jogos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content-container">
+            <div class="card shadow-lg"> 
+
+                <div class="card-body p-5 text-center">
+                    <i class="bi bi-joystick welcome-icon"></i>
+
+                    <div class="d-flex justify-content-center">
+                        <a href="/cadastro" class="btn btn-nerd">
+                            <i class="bi bi-plus-lg me-2"></i>Cadastrar Novo Jogo
+                        </a>
+                        <a href="/listadejogos" class="btn btn-nerd">
+                            <i class="bi bi-collection me-2"></i>Ver Lista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+    `);
+    res.end();
+});
+
 app.get("/cadastro", (req, res) => {
     res.send(`
 <!DOCTYPE html>
@@ -72,21 +207,64 @@ app.get("/cadastro", (req, res) => {
             opacity: 1;
         }
 
-        .min-vh-100 {
-            min-height: 100vh;
+        .nav-nerd {
+            background-color: #1E1E2F;
+            padding: 10px 15px;
+            border-bottom: 2px solid #9D4EDD;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+        }
+        
+        .nav-nerd .nav-link {
+            color: #e0e0e0;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-nerd .nav-link:hover,
+        .nav-nerd .nav-link.active {
+            background-color: #9D4EDD;
+            color: white;
         }
     </style>
 </head>
-<body class="min-vh-100 d-flex align-items-center">
-    <div class="container py-5">
+<body>
+    <!-- Barra de navegação no topo -->
+    <nav class="nav-nerd">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house-fill me-2"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/cadastro">
+                        <i class="bi bi-plus-circle-fill me-2"></i>Cadastrar Jogo
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listadejogos">
+                        <i class="bi bi-list-ul me-2"></i>Lista de Jogos
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-lg-9 col-md-10">
                 <div class="card shadow-lg">
                     <div class="card-header bg-nerd text-center">
-                        <h2 class="mb-0"><i class="bi bi-controller"></i> Cadastro de RPG Nerd</h2>
+                        <h2 class="mb-0"><i class="bi bi-controller"></i> Cadastro de RPG </h2>
                     </div>
                     <div class="card-body p-4">
                         <form method="POST" action="/jogocadastrado" class="row g-3">
+                            <!-- Restante do código do formulário permanece igual -->
                             <div class="col-12">
                                 <label for="inputNome" class="form-label"><i class="bi bi-controller"></i> Nome do Jogo</label>
                                 <input type="text" class="form-control" id="inputNome" name="nome" required placeholder="Ex: The Elders Scroll">
@@ -105,7 +283,7 @@ app.get("/cadastro", (req, res) => {
                             </div>
                             <div class="col-12">
                                 <label for="inputEquipe" class="form-label"><i class="bi bi-people-fill"></i> Equipe de Desenvolvimento</label>
-                                <input type="text" class="form-control" id="inputEquipe" name="equipe" required placeholder="Ex: NerdForce Studios">
+                                <input type="text" class="form-control" id="inputEquipe" name="equipe" required placeholder="Ex: Fromsoftware">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputLancamento" class="form-label"><i class="bi bi-calendar-event"></i> Data de Lançamento</label>
@@ -147,7 +325,7 @@ app.get("/cadastro", (req, res) => {
                             </div>
                             <div class="col-md-6">
                                 <label for="inputSite" class="form-label"><i class="bi bi-globe"></i> Site Oficial</label>
-                                <input type="url" class="form-control" id="inputSite" name="site" placeholder="https://">
+                                <input type="url" class="form-control" id="inputSite" name="site" placeholder="https://site.com">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-nerd btn-lg w-100 mt-3"><i class="bi bi-rocket-takeoff-fill"></i> Cadastrar Jogo</button>
@@ -417,7 +595,7 @@ app.post("/jogocadastrado", (req, res) => {
 });
 
 app.get("/listadejogos", (req, res) => {
-    
+    // HTML inicial
     let pagina = `
     <!DOCTYPE html>
     <html lang="pt-BR">
@@ -471,10 +649,56 @@ app.get("/listadejogos", (req, res) => {
                 text-align: center;
                 vertical-align: middle;
             }
+            
+            .nav-nerd {
+                background-color: #1E1E2F;
+                padding: 10px 15px;
+                border-bottom: 2px solid #9D4EDD;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                margin-bottom: 25px;
+            }
+            
+            .nav-nerd .nav-link {
+                color: #e0e0e0;
+                font-weight: bold;
+                padding: 10px 20px;
+                margin: 0 5px;
+                border-radius: 5px;
+                transition: all 0.3s;
+            }
+            
+            .nav-nerd .nav-link:hover,
+            .nav-nerd .nav-link.active {
+                background-color: #9D4EDD;
+                color: white;
+            }
         </style>
     </head>
-    <body class="min-vh-100 d-flex align-items-center">
-        <div class="container py-5">
+    <body>
+        <!-- Barra de navegação no topo -->
+        <nav class="nav-nerd">
+            <div class="container">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-fill me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cadastro">
+                            <i class="bi bi-plus-circle-fill me-2"></i>Cadastrar Jogo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/listadejogos">
+                            <i class="bi bi-list-ul me-2"></i>Lista de Jogos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        <div class="container py-4">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="card shadow-lg">
@@ -483,15 +707,17 @@ app.get("/listadejogos", (req, res) => {
                         </div>
                         <div class="card-body p-4">`;
     
-    
+    // Verificar se tem jogos
     if (jogos.length == 0) {
         pagina += `
             <div class="alert alert-warning">
                 Nenhum jogo cadastrado ainda!
             </div>
-            <a href="/cadastro" class="btn btn-nerd">Cadastrar Jogo</a>`;
+            <div class="text-center">
+                <a href="/cadastro" class="btn btn-nerd mt-3">Cadastrar Jogo</a>
+            </div>`;
     } else {
-        
+        // Criar tabela
         pagina += `
             <div class="table-responsive">
                 <table class="table table-dark table-bordered table-striped">
@@ -510,7 +736,7 @@ app.get("/listadejogos", (req, res) => {
                     </thead>
                     <tbody>`;
         
-        
+        // Adicionar jogos na tabela
         for (let i = 0; i < jogos.length; i++) {
             pagina += `
                         <tr>
@@ -535,7 +761,7 @@ app.get("/listadejogos", (req, res) => {
             </div>`;
     }
     
-    
+    // Fechar HTML
     pagina += `
                         </div>
                     </div>
@@ -546,7 +772,7 @@ app.get("/listadejogos", (req, res) => {
     </body>
     </html>`;
     
-    
+    // Enviar resposta
     res.send(pagina);
     res.end();
 });
@@ -555,7 +781,4 @@ const servidor = http.createServer(app);
 servidor.listen(porta, host, () => {
     console.log(`Servidor rodando em http://${host}:${porta}`);
 });
-
-
-
 export default app;
