@@ -124,15 +124,6 @@ app.get("/", (req, res) => {
 
                 <div class="card-body p-5 text-center">
                     <i class="bi bi-joystick welcome-icon"></i>
-
-                    <div class="d-flex justify-content-center">
-                        <a href="/cadastro" class="btn btn-nerd">
-                            <i class="bi bi-plus-lg me-2"></i>Cadastrar Novo Jogo
-                        </a>
-                        <a href="/listadejogos" class="btn btn-nerd">
-                            <i class="bi bi-collection me-2"></i>Ver Lista
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
