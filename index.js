@@ -20,84 +20,63 @@ app.get("/", (req, res) => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
         <style>
-            body {
-                background-color: #121212;
-                color: #e0e0e0;
-                font-family: 'Courier New', Courier, monospace;
-                min-height: 100vh;
-            }
-
-            .card {
-                background-color: #1E1E2F;
-                border: 1px solid #9D4EDD;
-                max-width: 800px;
-                width: 90%;
-                margin: 30px auto;
-            }
-
-            .bg-nerd {
-                background-color: #9D4EDD !important;
-                color: white;
-            }
-
-            .btn-nerd {
-                background-color: #9D4EDD;
-                border-color: #9D4EDD;
-                color: white;
-                box-shadow: 0 0 10px #9D4EDD;
-                margin: 10px;
-                font-size: 1.2rem;
-                padding: 12px 25px;
-            }
-
-            .btn-nerd:hover {
-                background-color: #7A2CC8;
-                border-color: #7A2CC8;
-            }
-            
-            .nav-nerd {
-                background-color: #1E1E2F;
-                padding: 10px 15px;
-                border-bottom: 2px solid #9D4EDD;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-                margin-bottom: 25px;
-            }
-            
-            .nav-nerd .nav-link {
-                color: #e0e0e0;
-                font-weight: bold;
-                padding: 10px 20px;
-                margin: 0 5px;
-                border-radius: 5px;
-                transition: all 0.3s;
-            }
-            
-            .nav-nerd .nav-link:hover,
-            .nav-nerd .nav-link.active {
-                background-color: #9D4EDD;
-                color: white;
-            }
-            
-            .welcome-icon {
-                font-size: 5rem;
-                color: #9D4EDD;
-                margin-bottom: 20px;
-                text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
-            }
-            
-            .card-title {
-                color: #9D4EDD;
-                font-weight: bold;
-                letter-spacing: 1px;
-            }
-
-            .content-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                min-height: calc(100vh - 80px);
-            }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100vh;
+        }
+        
+        .card {
+            background-color: #1E1E2F;
+            border: 1px solid #9D4EDD;
+            max-width: 800px;
+            width: 90%;
+            margin: 30px auto;
+        }
+        
+        .bg-nerd {
+            background-color: #9D4EDD !important;
+            color: white;
+        }
+        
+        .nav-nerd {
+            background-color: #1E1E2F;
+            padding: 10px 15px;
+            border-bottom: 2px solid #9D4EDD;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+        }
+        
+        .nav-nerd .nav-link {
+            color: #e0e0e0;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-nerd .nav-link:hover,
+        .nav-nerd .nav-link.active {
+            background-color: #9D4EDD;
+            color: white;
+        }
+        
+        .welcome-icon {
+            font-size: 5rem;
+            color: #9D4EDD;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+        }
+        
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+        }
         </style>
     </head>
     <body>
