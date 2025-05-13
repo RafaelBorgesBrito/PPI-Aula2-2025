@@ -1,0 +1,24 @@
+{
+  "name": "ppi-aula2-2025",
+  "version": "1.0.0",
+  "description": "2 aula de ppi",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelBorgesBrito/PPI-Aula2-2025.git"
+  },
+  "author": "rafael borges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafaelBorgesBrito/PPI-Aula2-2025/issues"
+  },
+  "homepage": "https://github.com/RafaelBorgesBrito/PPI-Aula2-2025#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
