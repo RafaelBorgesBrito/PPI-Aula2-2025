@@ -565,7 +565,7 @@ app.post("/jogocadastrado", (req, res) => {
 });
 
 app.get("/listadejogos", (req, res) => {
-    // HTML inicial
+    
     let pagina = `
     <!DOCTYPE html>
     <html lang="pt-BR">
@@ -677,7 +677,7 @@ app.get("/listadejogos", (req, res) => {
                         </div>
                         <div class="card-body p-4">`;
     
-    // Verificar se tem jogos
+    
     if (jogos.length == 0) {
         pagina += `
             <div class="alert alert-warning">
@@ -687,7 +687,7 @@ app.get("/listadejogos", (req, res) => {
                 <a href="/cadastro" class="btn btn-nerd mt-3">Cadastrar Jogo</a>
             </div>`;
     } else {
-        // Criar tabela
+       
         pagina += `
             <div class="table-responsive">
                 <table class="table table-dark table-bordered table-striped">
@@ -706,7 +706,7 @@ app.get("/listadejogos", (req, res) => {
                     </thead>
                     <tbody>`;
         
-        // Adicionar jogos na tabela
+        
         for (let i = 0; i < jogos.length; i++) {
             pagina += `
                         <tr>
@@ -731,7 +731,7 @@ app.get("/listadejogos", (req, res) => {
             </div>`;
     }
     
-    // Fechar HTML
+    
     pagina += `
                         </div>
                     </div>
@@ -742,7 +742,7 @@ app.get("/listadejogos", (req, res) => {
     </body>
     </html>`;
     
-    // Enviar resposta
+   
     res.send(pagina);
     res.end();
 });
