@@ -751,4 +751,3 @@ const servidor = http.createServer(app);
 servidor.listen(porta, host, () => {
     console.log(`Servidor rodando em http://${host}:${porta}`);
 });
-export default app;
